@@ -2,7 +2,7 @@
 // 1. THE MENU
 // ---------------------------------------------------------------
 
-import { MenuItem } from "./menuTypes";
+import { ComboDeal, MenuItem, OrderLine } from "./menuTypes";
 
 // TS: These three objects share a structure - declare an interface (call it
 //     MenuItem) that describes it, and annotate each declaration with it.
@@ -50,11 +50,11 @@ const brownie : MenuItem = {
 //     *optional properties* to MenuItem - discountPercent (number) and
 //     availableFrom (Date) - and set them on one or two items here. The
 //     existing objects that lack them must still compile.
-const menu = [soup, risotto, brownie];
+const menu : MenuItem[] = [soup, risotto, brownie];
 
 // TS: A combo is a named bundle of menu items sold at a fixed price. Declare a
 //     second interface for it (ComboDeal: id, name, items, price).
-const lunchCombo = {
+const lunchCombo : ComboDeal = {
   id: 101,
   name: "Soup & Sweet",
   items: [soup, brownie],
@@ -63,7 +63,7 @@ const lunchCombo = {
 
 // TS: An order line is *either* a MenuItem or a ComboDeal. Declare a *type
 //     alias* for that union (e.g. OrderLine) and use it for the array below.
-const currentOrder = [risotto, lunchCombo, soup];
+const currentOrder : OrderLine[] = [risotto, lunchCombo, soup];
 
 // ---------------------------------------------------------------
 // 2. FUNCTIONS
