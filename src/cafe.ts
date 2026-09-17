@@ -36,7 +36,7 @@ const risotto : MenuItem = {
 const brownie : MenuItem = {
   id: 3,
   name: "Chocolate Brownie",
-  course: "desert",
+  course: "dessert",
   price: 6.0,
   nutrition: {
     calories: 450,
