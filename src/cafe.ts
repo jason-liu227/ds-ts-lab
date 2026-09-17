@@ -16,6 +16,8 @@ const soup : MenuItem= {
     calories: 180,
     allergens: ["celery"],
   },
+  discountPercent : 10,
+  availableFrom : new Date,
 };
 
 const risotto : MenuItem = {
