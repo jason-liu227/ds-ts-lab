@@ -161,6 +161,6 @@ console.log(allergyCard(brownie));
 
 // TS: Three more lines below are bugs that only the compiler can see. Once
 //     your types are in place, fix each one and note it in your commit message.
-console.log(describe(lunchCombo));
+console.log(describe(soup));
 console.log(updateItem(soup, { price: "7.00" }));
 console.log(firstMatch(menu, (i) => i.calories < 300));
