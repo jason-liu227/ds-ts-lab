@@ -2,7 +2,7 @@
 // 1. THE MENU
 // ---------------------------------------------------------------
 
-import { ComboDeal, MenuItem, OrderLine } from "./menuTypes";
+import { AllergyCard, ComboDeal, KitchenTicket, MenuItem, OrderLine } from "./menuTypes";
 
 // TS: These three objects share a structure - declare an interface (call it
 //     MenuItem) that describes it, and annotate each declaration with it.
@@ -108,20 +108,20 @@ function cheapest(items : MenuItem[], max? : number) {
 
 // TS: This function works on any array, not just menu items. Make it
 //     *generic*: <T>(data: T[], criteria: (d: T) => boolean) => T | undefined.
-function firstMatch(data, criteria) {
+function firstMatch<T>(data : T[], criteria : (d: T) => boolean) {
   return data.find(criteria);
 }
 
 // TS: 'changes' holds *some* of a MenuItem's properties. Use the Partial<>
 //     *utility type* rather than declaring a new interface by hand.
-function updateItem(item, changes) {
+function updateItem(item : MenuItem, changes : Partial<MenuItem>) {
   return { ...item, ...changes };
 }
 
 // TS: The kitchen ticket needs the name and course of an item, and nothing
 //     else - and it must not be modifiable once created. Declare its type by
 //     composing two utility types: Readonly<Pick<...>>.
-function kitchenTicket(item) {
+function kitchenTicket(item :MenuItem) : KitchenTicket {
   return {
     name: item.name,
     course: item.course,
@@ -131,7 +131,7 @@ function kitchenTicket(item) {
 // TS: An allergy card is a MenuItem without its nutrition property, but with a
 //     'warning' string added. Declare its type with Omit<> and an intersection
 //     (&) - see the EventPass example in the Utility Types section.
-function allergyCard(item) {
+function allergyCard(item : MenuItem) : AllergyCard{
   return {
     id: item.id,
     name: item.name,
